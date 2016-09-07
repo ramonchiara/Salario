@@ -12,6 +12,18 @@ namespace SalarioComPlanoDeCarreiraPromocao
         private int Nivel;
         private double Horas;
 
+        public Funcionario(string nome) : this(nome, 1, 160)
+        {
+        }
+
+        public Funcionario(string nome, double horas) : this(nome, 1, horas)
+        {
+        }
+
+        public Funcionario(string nome, int nivel) : this(nome, nivel, 160)
+        {
+        }
+
         public Funcionario(string nome, int nivel, double horas)
         {
             this.Nome = nome;
@@ -21,8 +33,13 @@ namespace SalarioComPlanoDeCarreiraPromocao
 
         public decimal GetSalario()
         {
+            return GetSalario(Horas);
+        }
+
+        public decimal GetSalario(double horas)
+        {
             decimal valor = GetValor();
-            return valor * Convert.ToDecimal(Horas);
+            return valor * Convert.ToDecimal(horas);
         }
 
         public string GetNome()
@@ -33,6 +50,14 @@ namespace SalarioComPlanoDeCarreiraPromocao
         public double GetHoras()
         {
             return Horas;
+        }
+
+        public void SetHoras(double horas)
+        {
+            if (horas > 0)
+            {
+                Horas = horas;
+            }
         }
 
         public decimal GetValor()
@@ -54,6 +79,14 @@ namespace SalarioComPlanoDeCarreiraPromocao
         public int GetNivel()
         {
             return Nivel;
+        }
+
+        public void SetNivel(int nivel)
+        {
+            if (nivel >= 1 && nivel <= 5)
+            {
+                Nivel = nivel;
+            }
         }
 
         public void Promover()

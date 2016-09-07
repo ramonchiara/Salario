@@ -55,7 +55,5 @@ namespace SalarioComPlanoDeCarreira
         {
             return Nivel;
         }
-
-
     }
 }
